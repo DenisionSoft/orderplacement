@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ListItem from "./ListItem.jsx";
 
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 3;
 
 export default function OrderList({ onOrderOpen }) {
     const [orders, setOrders] = useState([]);
