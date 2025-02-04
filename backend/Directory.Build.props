@@ -1,0 +1,35 @@
+<Project>
+    <PropertyGroup>
+        <CommonPrefix>Versta.OrderPlacement</CommonPrefix>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RootNamespace>$(CommonPrefix).$(MSBuildProjectName)</RootNamespace>
+        <TargetFramework>net9.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations">
+            <PrivateAssets>All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis">
+            <PrivateAssets>All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
+            <PrivateAssets>All</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(IsTestProject)' == ''">
+        <IsTestProject>$(MSBuildProjectName.Contains(`Tests`))</IsTestProject>
+    </PropertyGroup>
+    <Import Project="$(BuildPropsDir)Testing.targets" />
+</Project>
