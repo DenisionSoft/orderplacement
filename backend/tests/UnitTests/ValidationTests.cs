@@ -17,7 +17,7 @@ public class ValidationTests
             "Москва",
             "Сретенский бульвар, 1",
             weight,
-            DateTimeOffset.Now);
+            DateTimeOffset.UtcNow);
 
         var validator = new CreateOrderCommandValidator();
 

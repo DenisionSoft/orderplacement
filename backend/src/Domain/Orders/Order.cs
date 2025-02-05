@@ -73,7 +73,7 @@ public sealed class Order : EntityBase
             destinationCity,
             destinationAddress,
             weight,
-            acceptedAt
+            acceptedAt.ToUniversalTime()
         );
     }
 }

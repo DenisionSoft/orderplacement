@@ -19,6 +19,16 @@ export default function NewOrderForm({ isOpen, onClose }) {
     const onAddHandler = (event) => {
         const { name, value, type } = event.target;
 
+        if (type === "date") {
+            const date = new Date(value);
+            const isoDate = date.toISOString();
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: isoDate,
+            }));
+            return;
+        }
+
         setFormData((prevData) => ({
             ...prevData,
             [name]: type === "number" ? parseFloat(value) || 0 : value,
